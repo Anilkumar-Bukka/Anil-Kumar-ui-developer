@@ -26,12 +26,12 @@
             if (optmeals.checked) {
                 mealcost = 100;
                 mealname = optmeals.value;
-                imgmeal.src = "Images/meals.jpg";
+                imgmeal.src = "public/Images/meals.jpg";
             }
             if (optbiryani.checked) {
                 mealcost = 120;
                 mealname = optbiryani.value;
-                imgmeal.src = "Images/biryani.jpg";
+                imgmeal.src = "public/Images/biryani.jpg";
             }
 
             var optburger = document.getElementById("optburger");
@@ -43,13 +43,13 @@
                 addoncost = 40;
                 addonname += optburger.value + "<br>";
                 mealcost += addoncost;
-                kfcmeal.src = "Images/burger.jpg";
+                kfcmeal.src = "public/Images/burger.jpg";
             }
             if (optchicken.checked) {
                 addoncost = 60;
                 addonname += optchicken.value + "<br<>";
                 mealcost += addoncost;
-                kfcmeal.src = "Images/kfcc.jpg";
+                kfcmeal.src = "public/Images/kfcc.jpg";
             }
 
             document.getElementById("lblmeal").innerHTML = mealname;
@@ -64,7 +64,7 @@
 
 <body class="container-fluid">
     <header>
-        <img src="images/kfcb.jpg" width="100%" height="250px">
+        <img src="public/images/kfcb.jpg" width="100%" height="250px">
     </header>
     <section>
         <div class="accordion" id="kfc">
@@ -104,14 +104,14 @@
                         <div class="row">
                             <div class="col text-center">
                                 <h3>Meals</h3>
-                                <img src="Images/meals.jpg  " width="100%">
+                                <img src="public/Images/meals.jpg  " width="100%">
         
                                 <input type="checkbox" id="optmeals" value="Meals" class="form-check-input" name="meals">
                                 <label>&#8377 100/- </label>
                             </div>
                             <div class="col text-center">
                                 <h3>Biryani</h3>
-                                <img src="Images/biryani.jpg" width="100%">
+                                <img src="public/Images/biryani.jpg" width="100%">
         
                                 <input type="checkbox" id="optbiryani" class="form-check-input" value=" Biryani" name="biryani">
                                 <lable>&#8377 120/- </lable>
@@ -132,14 +132,14 @@
                     <div class="row">
                         <div class="col text-center">
                             <h3> Burger </h3>
-                            <img src="Images/burger.jpg" width="100%">
+                            <img src="public/Images/burger.jpg" width="100%">
                             <input type="checkbox" id="optburger" value=" Burger" class="form-check-input" name="burger">
                             <lable>&#8377 40/- </lable>
     
                         </div>
                         <div class="col text-center">
                             <h3>Chicken</h3>
-                            <img src="Images/kfcc.jpg" width="100%">
+                            <img src="public/images/kfcc.jpg"100%">
                             <input type="checkbox" id="optchicken" value=" Chicken" class="form-check-input" name="chicken">
                             <lable>&#8377 60/- </lable>
     
