@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KFC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function OrderClick() {
+            document.getElementById("lblname").innerHTML = document.getElementById("txtname").value;
+            document.getElementById("lblmobile").innerHTML = document.getElementById("txtmobile").value;
+
+            var mealname = "";
+            var mealcost = 0;
+
+            var addonname = "";
+            var addoncost = 0;
+
+            var optmeals = document.getElementById("optmeals");
+            var optbiryani = document.getElementById("optbiryani");
+
+            var imgmeal = document.getElementById("imgmeal");
+
+            if (optmeals.checked) {
+                mealcost = 100;
+                mealname = optmeals.value;
+                imgmeal.src = "./Images/meals.jpg  ";
+            }
+            if (optbiryani.checked) {
+                mealcost = 120;
+                mealname = optbiryani.value;
+                imgmeal.src = "./Images/biryani.jpg";
+            }
+
+            var optburger = document.getElementById("optburger");
+            var optchicken = document.getElementById("optchicken");
+
+            var imgmeal = document.getElementById("kfcmeal");
+
+            if (optburger.checked) {
+                addoncost = 40;
+                addonname += optburger.value + "<br>";
+                mealcost += addoncost;
+                kfcmeal.src = "./Images/burger.jpg";
+            }
+            if (optchicken.checked) {
+                addoncost = 60;
+                addonname += optchicken.value + "<br<>";
+                mealcost += addoncost;
+                kfcmeal.src = "./Images/kfcc.jpg";
+            }
+
+            document.getElementById("lblmeal").innerHTML = mealname;
+            document.getElementById("lbladdon").innerHTML = addonname;
+            document.getElementById("lbltotal").innerHTML = mealcost.toLocaleString('en-in', { style: 'currency', currency: 'INR' });
+
+        }
+
+    </script>
+
+</head>
+
+<body class="container-fluid">
+    <header>
+        <img src="./Images/kfcb.jpg " width="100%" height="250px">
+    </header>
+    <section>
+        <div class="accordion" id="kfc">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                   <button data-bs-target="#customer" data-bs-toggle="collapse" class="btn btn-danger w-100"> Customer Details </button>
+                </div>
+                <div class="accordion-collapse collapse" id="customer" data-bs-parent="#kfc">
+                    <div class="accordion-body bg-danger text-white mt-2 ">
+                        <dl>
+                            <dt>Customer Nmae </dt>
+                            <dd> <input type="text" id="txtname" class="form-control"> </dd>
+                            <dt>Mobile Number</dt>
+                            <dd> <input type="text" id="txtmobile" class="form-control"> </dd>
+                        </dl>
+
+                    </div>
+
+                </div>
+                
+               
+
+            </div>
+
+        </div>
+
+
+    
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class="btn btn-danger w-100 mt-2 " data-bs-toggle="collapse" data-bs-target="#meals"> Select Your
+                        Meals </button>
+                </div>
+                <div  class="accordion-collapse collapse" id="meals" data-bs-parent="#kfc">
+                    <div class="accordion-body bg-danger text-white mt-2 ">
+                        <div class="row">
+                            <div class="col text-center">
+                                <h3>Meals</h3>
+                                <img src="./Images/meals.jpg  " width="100%">
+        
+                                <input type="checkbox" id="optmeals" value="Meals" class="form-check-input" name="meals">
+                                <label>&#8377 100/- </label>
+                            </div>
+                            <div class="col text-center">
+                                <h3>Biryani</h3>
+                                <img src="./Images/biryani.jpg" width="100%">
+        
+                                <input type="checkbox" id="optbiryani" class="form-check-input" value=" Biryani" name="biryani">
+                                <lable>&#8377 120/- </lable>
+                            </div>
+                        </div>
+                    </div>                  
+                </div>
+            </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header mb-2 ">
+                <button class="btn btn-danger w-100 mt-2 " data-bs-toggle="collapse" data-bs-target="#biryani">Add
+                    Addon's</button>
+            </div>
+            <div class="accordion-collapse collapse" id="biryani" data-bs-parent="#kfc">
+
+                <div class="accordion-body bg-danger text-white w-100 ">
+                    <div class="row">
+                        <div class="col text-center">
+                            <h3> Burger </h3>
+                            <img src="./Images/burger.jpg" width="100%">
+                            <input type="checkbox" id="optburger" value=" Burger" class="form-check-input" name="burger">
+                            <lable>&#8377 40/- </lable>
+    
+                        </div>
+                        <div class="col text-center">
+                            <h3>Chicken</h3>
+                            <img src="./Images/kfcc.jpg" width="100%">
+                            <input type="checkbox" id="optchicken" value=" Chicken" class="form-check-input" name="chicken">
+                            <lable>&#8377 60/- </lable>
+    
+                        </div>
+    
+    
+                    </div>
+                </div>
+
+
+            </div>
+            
+        </div>
+        <button onclick="OrderClick()" class="btn btn-danger w-100" data-bs-target="#bill"
+            data-bs-toggle="modal">Place Order</button>
+
+        <div class="modal" id="bill">
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    <h3 class="text-warning">Order Confirmation Details</h3>
+                    <button class="btn btn-close text-bg-primary " data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <dl class="text-white">
+                                <dt>Customer Name</dt>
+                                <dd class="text-warning fs-5 " id="lblname"></dd><br>
+                                <dt>Mobile Number</dt>
+                                <dd id="lblmobile" class="text-warning fs-5 "></dd><br>
+                                <dt>Meals</dt>
+                                <dd id="lblmeal" class="text-warning fs-5 "></dd><br>
+                                <dt>Add On's</dt>
+                                <dd id="lbladdon" class="text-warning fs-5 "></dd><br><br>
+                                <dt> Total </dt>
+                                <dd id="lbltotal" class="text-warning fs-5 "></dd>
+
+                            </dl>
+                        </div>
+                        <div class="col">
+                            <img width="100%" id="imgmeal">
+                            <img width="100%" id="kfcmeal">
+                        </div>
+                        <button class="btn btn-warning">Pay Bill </button>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
